@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+
+        .container {
+
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        .contact-section {
+            background-color: #fff;
+            padding: 40px 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            font-size: 36px; /* Increased font size */
+            margin-bottom: 15px;
+        }
+
+        h3 {
+            text-align: center;
+            font-size: 24px; /* Increased font size */
+            color: #333;
+        }
+
+        p {
+            color: #666;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        .contact-details {
+            text-align: center;
+            margin-top: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .contact-item {
+            text-align: center;
+            font-size: 18px;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .address-details {
+            text-align: center;
+            font-size: 18px;
+            margin-top: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .adress-item {
+            text-align: center;
+            font-size: 24px;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .map-container {
+            margin-top: 30px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            height: 290px;
+        }
+
+        .map-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            border-radius: 8px;
+        }
+
+        .contact-form-card {
+            margin-top: 20px;
+            background-color: #ffffff;
+            border-radius: 15px;
+            padding: 20px;
+            transition: box-shadow 0.3s ease-in-out;
+        }
+
+        /* Only show the card when the container is hovered */
+        .container:hover .contact-form-card {
+            box-shadow: 0 20px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        label {
+            font-size: 18px;
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 8px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .social-links {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            text-align: center;
+            margin-right: 15px;
+            color: #333;
+            text-decoration: none;
+            font-size: 24px;
+        }
+
+        i{
+            font-size: 2;
+        }
+
+        .custom-marker {
+            background-color: #800080;
+            color: #fff;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2>CONTACT US</h2>
+            <p>We're here to assist you. Feel free to reach out to us for any inquiries or assistance.</p>
+            <div class="contact-details">
+                <div class="contact-item">
+                    <h3>CUSTOMER SUPPORT</h3>
+                    <p>Email: sw1ftpay@gmail.com</p>
+                    <p>Phone: +91 9944231678</p>
+                </div>
+            </div>
+
+            <div id="map" class="map-container"></div>
+            <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+            <script>
+                var map = L.map('map').setView([10.8505, 76.2711], 12); // Coordinates for Kochi
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '&copy; OpenStreetMap contributors'
+                }).addTo(map);
+
+                // Create a purple marker for Kochi with an emoji
+                var kochiMarker = L.marker([10.8505, 76.2711], {
+                    icon: L.divIcon({
+                        className: 'custom-marker',
+                        html: '🏰', // Emoji for Kochi
+                        iconSize: [30, 30],
+                        iconAnchor: [15, 30],
+                        popupAnchor: [0, -30]
+                    })
+                }).addTo(map);
+
+                kochiMarker.bindPopup("<b>Kochi</b>").openPopup(); // You can customize the popup content
+            </script>
+
+            <div class="adress-details">
+                <div class="adress-item">
+                    <h3>ADDRESS</h3>
+                    <p>123, ABC Street, Gandhipuram,</p>
+                    <p>Coimbatore - 641012,</p>
+                    <p>Tamil Nadu, India.</p>
+                </div>
+            </div>
+
+            <div class="contact-form-card">
+                <h3>SEND US A MESSAGE</h3>
+                <form action="#" method="post">
+                    <label for="name">Your Name:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">Your Email:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="message">Your Message:</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="contact-item">
+            <h3>CONNECT WITH US</h3>
+            <div class="social-links">
+                <a href="#" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="#" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <!-- Add more social media icons as needed -->
+            </div>
+        </div>
+    </section>
+</body>
+</html>

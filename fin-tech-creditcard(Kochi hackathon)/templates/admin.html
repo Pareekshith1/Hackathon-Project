@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>admin login page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='admin_styles.css') }}">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1>ADMIN PAGE</h1>
+        <nav>
+            <ul>
+            <li><a href="{{ url_for('user_info') }}"><i class="fas fa-user"></i> USER INFO</a></li>
+            <li><a href=""><i class="fas fa-cogs"></i> SITE CONFIGURATION</a></li>
+            <li><a href=""><i class="fas fa-tools"></i> TECHNICAL MAINTENANCE</a></li>
+            <li><a href="{{ url_for('display_suspicious') }}"><i class="fas fa-exclamation-triangle"></i> SUSPICIOUS TRANSACTIONS</a></li>
+            <li><a href=""><i class="fas fa-chart-bar"></i> ANALYTICS AND REPORTING</a></li>
+            </ul>
+        </nav>
+    </header>
+</body>
+</html>

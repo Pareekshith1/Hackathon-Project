@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced Registration Form</title>
+  <style>
+    /* Add your neumorphism styles here */
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #ABB1E3 10%, #ADB3E7 20%, #ABB1E5 , #A5ACE2 60%, #9FA5DF 70%, #979DD9 90%, #979DDB 30%, #9197D8);
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    #main-container{
+      width: 800px;
+      height:600px;
+      border-radius: 25px;
+      background: linear-gradient(to right, #ADB3E7 20%, #ABB1E5 , #A5ACE2 60%, #979DD9 90);
+      box-shadow: 7px 7px 10px #6F74B8,
+                  7px 7px 10px #6F74B8;
+      position: absolute;
+      
+      top:50%;
+      left:50%;
+      transform: translate(-50%,-50%);
+    }
+
+    #registration-container {
+      background-color: transparent;
+      padding: 20px;
+      width: 400px;
+      height: 300px; /* Add fixed height */
+      display: flex;
+      position:absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .registration-step {
+      display: none;
+      position: absolute;
+      top:50%;
+      left:50%;
+      transform: translate(-50%,-50%);
+      width: 100%; /* Set width to 100% */
+    }
+
+    .registration-step.active {
+      display: block;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+      position: relative;
+      bottom:55px;
+      color: white;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      margin: 0 auto;
+      position: relative;
+      bottom: 50px;;
+      border: transparent;
+      border-radius: 10px;
+      box-shadow: inset 3px 3px 4px #6F74B8,
+                  inset 3px 3px 4px #b7bbe8;
+      box-sizing: border-box;
+    }
+
+    h2{
+        position: relative;
+        color: white;
+        bottom: 60px;;
+    }
+
+    button {
+      background-color:#5c62b8;
+      box-shadow:  3px 3px 4px #6F74B8,
+                   3px 3px 4px #b7bbe8;
+      color: white;
+      padding: 10px 15px;
+      width:100px;
+      height:40px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      position: relative;
+    }
+    #prev-btn {
+      left: 60px;
+      top: 340px;
+    }
+
+    #next-btn {
+      left:240px;
+      top:80px;
+    }
+
+    button:hover {
+      
+    }
+
+
+    .file-input-container {
+      position: relative;
+      overflow: hidden;
+      display: inline-block;
+      border: 2px solid #5c62b8;
+      color: #5c62b8;
+      background-color: #ffffff;
+      border-radius: 5px;
+      padding: 8px 12px;
+      cursor: pointer;
+    }
+
+    /* Style the custom file input button */
+    .file-input-button {
+      background-color: white;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    /* Hide the default file input */
+    input[type="file"]::-webkit-file-upload-button{
+        border-radius: 20px;
+        border: transparent;
+        background-color:#5c62b8;
+        box-shadow:  3px 3px 4px #6F74B8,
+                   3px 3px 4px #b7bbe8;
+        color: white;
+        padding: 10px 15px;
+
+    }
+
+    input[type="file"]{
+        background-color: white;
+    }
+
+    input[type="file"]::-webkit-{
+        color:#5c62b8;
+        position: relative;
+
+        left: 30px;
+    }
+
+    
+
+  </style>
+</head>
+<body>
+  <div id="main-container">
+    <div id="registration-container">
+      <div class="registration-step active" id="step1">
+        <h2>Step 1: Personal Information</h2>
+        <form>
+          <label for="first-name">First Name:</label>
+          <input type="text" id="first-name" name="first-name" placeholder="Enter your First Name" required>
+
+          <label for="middle-name">Middle Name:</label>
+          <input type="text" id="middle-name" name="middle-name" placeholder="Enter your Middle Name">
+
+          <label for="last-name">Last Name:</label>
+          <input type="text" id="last-name" name="last-name" required placeholder="Enter your Last Name">
+
+          <!-- Add other personal information fields -->
+        </form>
+      </div>
+
+      <div class="registration-step" id="step2">
+        <h2>Step 2: Document Verification</h2>
+        <form>
+          <label for="aadhar-no">Aadhar Number:</label>
+          <input type="text" id="aadhar-no" name="aadhar-no" required placeholder="Enter your Aadhar number">
+
+          <label for="pan-no">PAN Card Number:</label>
+          <input type="text" id="pan-no" name="pan-no" required placeholder="Enter your PanCard Number">
+
+          <!-- Add file upload for photo and PAN card -->
+          <label for="photo">Upload Photo:</label>
+          <input type="file" id="photo" name="photo" accept="image/*" required>
+
+          <label for="pan-photo">Upload PAN Card Photo:</label>
+          <input type="file" id="pan-photo" name="pan-photo" accept="image/*" required>
+        </form>
+      </div>
+
+      <div class="registration-step" id="step3">
+        <h2>Step 3: Security and Bio Verification</h2>
+        <form>
+          <!-- Add live selfie, voice recording, signature upload fields -->
+          <label for="live-selfie">Take Live Selfie:</label>
+          <!-- Add logic for live selfie (e.g., using a camera API) -->
+
+          <label for="voice-recording">Record Voice (15 seconds):</label>
+          <!-- Add logic for voice recording -->
+
+          <label for="signature">Upload Signature:</label>
+          <input type="file" id="signature" name="signature" accept="image/*" required>
+        </form>
+      </div>
+
+      <button type="button" onclick="prevStep()" id="prev-btn">Previous</button>
+      <button type="button" onclick="nextStep()" id="next-btn">Next</button>
+    </div>
+  </div>
+
+  <script>
+    let currentStep = 1;
+
+    function nextStep() {
+      const currentStepElement = document.getElementById(`step${currentStep}`);
+      const nextStepElement = document.getElementById(`step${currentStep + 1}`);
+
+      if (nextStepElement) {
+        currentStepElement.classList.remove('active');
+        nextStepElement.classList.add('active');
+        currentStep += 1;
+      }
+    }
+
+    function prevStep() {
+      const currentStepElement = document.getElementById(`step${currentStep}`);
+      const prevStepElement = document.getElementById(`step${currentStep - 1}`);
+
+      if (prevStepElement) {
+        currentStepElement.classList.remove('active');
+        prevStepElement.classList.add('active');
+        currentStep -= 1;
+      }
+    }
+  </script>
+</body>
+</html>

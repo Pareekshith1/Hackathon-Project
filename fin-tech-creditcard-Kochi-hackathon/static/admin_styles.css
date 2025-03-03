@@ -1,0 +1,50 @@
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #333;
+    color:white;
+}
+
+header {
+    padding: 15px;
+    text-align: center;
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    background-color: #f1f1f1;
+    padding: 15px;
+    width: 200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav a {
+    text-decoration: none; /* Remove underline */
+    color: #555;
+    padding: 12px 20px;
+    margin: 6px 0;
+    border-radius: 6px;
+    transition: background-color 0.3s, color 0.3s;
+    display: block; /* Ensure each link is a block element for better spacing */
+    text-align: left;
+}
+
+nav a:hover {
+    background-color: #ddd;
+    color: #333;
+}
+
+main {
+    padding: 20px;
+    margin: 20px; /* Add margin for better separation from other elements */
+}

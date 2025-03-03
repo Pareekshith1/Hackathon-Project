@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Complaint form</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right,#ABB1E3 10%,#ADB3E7 20%, #ABB1E5 ,#A5ACE2 60%,#9FA5DF 70%,#979DD9 90%, #979DDB 30%, #9197D8);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+
+        .card1{
+            color: #fff; /* White text color */
+            position:relative;
+            top:55px;
+            left:500px;
+            padding: 20px;
+            width: 300px; /* Equal width for both cards */
+            height: 500px; /* Equal height for both cards */
+            margin: 0 10px; /* Add margin between the cards */
+            transition: transform 0.5s ease; /* Transition for the rotation effect */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            display:block;
+        }
+
+        .card2{
+            color: #fff; /* White text color */
+            position: relative;
+            top:55px;
+            left:500px;
+            padding: 20px;
+            width: 300px; /* Equal width for both cards */
+            height: 500px; /* Equal height for both cards */
+            margin: 0 10px; /* Add margin between the cards */
+            transition: transform 0.5s ease; /* Transition for the rotation effect */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            display:none;
+        }
+        
+
+        input{
+            
+            box-shadow:
+	        inset 1px 2px 4px #9952d7,
+	        inset -1px -2px 4px #c180ec;
+            transition: box-shadow 0.3s ease;
+            background: #f0f0f0;
+
+        }
+
+        input:focus{
+            outline: none;
+        }
+        
+
+        label {
+            display: block;
+            margin-bottom: 10px; /* Increased margin */
+        }
+
+        /* refrence */
+
+       /* $bg: #EDF2F0;
+
+        $neu-1: #ecf0f3;
+       
+
+        $white: #f9f9f9;
+        $gray: #a0a5a8;
+        $black: #181818;
+
+        $purple: #4B70E2;
+
+
+        $transition: 1.25s;*/
+
+        input,
+        select{
+            width: 100%;
+            padding: 10px; /* Reduced padding */
+            margin-bottom: 20px; /* Increased margin */
+            box-sizing: border-box;
+            border:transparent;
+            border-radius: 6px;
+        }
+
+        button {
+            background-color: #f8f9fa; /* Light gray button color */
+            color: #343a40; /* Dark text color */
+            padding: 12px 20px; /* Adjusted padding */
+            margin-top: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px; /* Increased font size */
+            transition: background-color 0.3s ease; /* Smooth color transition */
+        }
+
+        button:hover {
+            background-color: #e2e6ea; 
+        }
+        button{
+            container-type: inline-size;
+            position: relative;
+            left: 65px;
+            width: 150px;
+            height:50px;
+            border: 0.5rem solid transparent;
+            border-radius: 1rem;
+            color: hsl(0 0% 10%);
+            background: none;
+
+            display: grid;
+            place-content: center;
+            gap: 1rem;
+
+            --shadow:
+                -.5rem -.5rem 1rem hsl(0 0% 100% / .75),
+                .5rem .5rem 1rem hsl(0 0% 50% / .5);
+            box-shadow: var(--shadow);
+            outline: none;
+            transition: all 0.1s;
+
+            &:hover, &:focus-visible {
+                color: hsl(10 80% 50%);
+                scale: 1.1
+            }
+            &:active, &.active{
+                box-shadow:
+                var(--shadow),
+                inset .5rem .5rem 1rem hsl(0 0% 50% / .5),
+                inset -.5rem -.5rem 1rem hsl(0 0% 100% / .75);
+                color: hsl(10 80% 50%);
+                > i { font-size: 28cqi};
+                > span { font-size: 13cqi};
+            }
+
+            >i {
+                font-size: 31cqi;
+            }
+            > span {
+                font-family: system-ui, sans-serif;
+                font-size: 16cqi;
+            }
+        }
+
+
+
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+
+        /* new whole container */
+        #card-container{
+
+            width: 900px;
+            height:700px;
+            border-radius: 50px;
+            background: linear-gradient(225deg, #bb93dd, #dfaeff);
+            box-shadow:  -20px 20px 60px #b18bd0,
+             20px -20px 60px #efbbff;
+             
+
+             
+        }
+
+        #next{
+            left: 700px;
+            top: 50px;
+            font-size: 1em;
+        }
+        #prev{
+            left:510px;
+            bottom:10px;
+        }
+    </style>
+
+</head>
+
+<body>
+    
+<div id="card-container">
+    <div class="card1" id="card1">
+        <!-- First Card Content -->
+        <form action="submit" method="post">
+            <label for="username">Username :</label>
+            <input type="text" id="username" name="username" required>
+            <label for="email">Email :</label>
+            <input type="email" id="email" name="email" required><br>
+            <label for="phone_number">Phone Number :</label>
+            <input type="tel" id="phone_number" name="phone_number"><br>
+            <label for="upi">UPI id:</label>
+            <input type="text" id="upi" name="upi"><br>
+            <label for="account_number">Account Number :</label>
+            <input type="text" id="account_number" name="account_number" required><br>
+            <label for="complaint_type">Complaint Type :</label>
+            <select id="complaint_type" name="complaint_type" required>
+                <option value="fraud">Fraud</option>
+                <option value="billing">Billing Error</option>
+                <option value="other">Other</option>
+            </select><br>
+        </form>
+    </div>
+
+    <div class="card2" id="card2">
+        <!-- Second Card Content -->
+        <form action="submit" method="post">
+            <label for="transaction_id">Transaction ID :</label>
+            <input type="text" id="transaction_id" name="transaction_id"><br>
+            <label for="date">Date of Transaction:</label>
+            <input type="date" id="date" name="date"><br>
+            <label for="amount">Transaction Amount :</label>
+            <input type="text" id="amount" name="amount"><br>
+            <label for="merchant">Merchant Name:</label>
+            <input type="text" id="merchant" name="merchant"><br>
+            <label for="attachments">Attachments:</label>
+            <input type="file" id="attachments" name="attachments" accept=".pdf, .doc, .docx"><br>
+            <button id="button">Submit</button>
+        </form>
+    </div>
+    <button id="next" onclick="cardChangerTOSecond()">Next</button>
+    <button id="prev" onclick="cardChangerToFirst()">Prev</button>
+    </div>
+</div> 
+
+<script>
+
+    function cardChangerTOSecond(){
+
+        document.getElementById("card2").style.display="block";
+        document.getElementById("card1").style.display="none";
+    }
+
+    function cardChangerToFirst(){
+        document.getElementById("card2").style.display="none";
+        document.getElementById("card1").style.display="block";
+    }
+
+
+</script>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trust Score Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='resultstyle.css') }}">
+</head>
+<body>
+    <h1>Trust Score Result</h1>
+    <p>Mobile Number: {{ mobile_number }}</p>
+    <p>Trust Score: {{ trust_score }}</p>
+
+    {% if alert_flag %}
+        <p style="color: red;">Alert: Low trust score detected!</p>
+    {% else %}
+        <p>No alert: Trust score seems normal.</p>
+    {% endif %}
+
+    <a href="/">Go back to input page</a>
+</body>
+</html>
